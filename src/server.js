@@ -42,7 +42,6 @@
 //   ],
 // };
 
-
 // // 用户查询统计数据
 // const userStats = {}; // 用于记录每个物品的查询次数
 
@@ -89,55 +88,87 @@
 // app.listen(PORT, () => {
 //   console.log(`Server is running on http://localhost:${PORT}`);
 // });
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const fs = require('fs');
-const path = require('path');
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const fs = require("fs");
+const path = require("path");
 
 const app = express();
 app.use(cors());
+app.use(express.static(path.join(__dirname, "build")));
 app.use(bodyParser.json());
 
 const trashData = {
-  'Paper (Papier)': [
-    { name: 'Toilet Paper (Papier Toilette)', category: 'Non-recyclable - Hygiene Waste' },
-    { name: 'Newspaper (Journal)', category: 'Recyclable' },
-    { name: 'Candy Paper (Papier Bonbon)', category: 'Non-recyclable - Other Waste' },
-    { name: 'Paper Carton (Carton de Papier)', category: 'Recyclable' },
+  "Paper (Papier)": [
+    {
+      name: "Toilet Paper (Papier Toilette)",
+      category: "Non-recyclable - Hygiene Waste",
+    },
+    { name: "Newspaper (Journal)", category: "Recyclable" },
+    {
+      name: "Candy Paper (Papier Bonbon)",
+      category: "Non-recyclable - Other Waste",
+    },
+    { name: "Paper Carton (Carton de Papier)", category: "Recyclable" },
   ],
-  'Battery (Batterie)': [
-    { name: 'Dry Battery (Pile Sèche)', category: 'Hazardous Waste - Non-recyclable' },
-    { name: 'Li-ion Battery (Batterie Li-ion)', category: 'Hazardous Waste - Non-recyclable' },
-    { name: 'Lead-acid Battery (Batterie au Plomb-acide)', category: 'Hazardous Waste - Non-recyclable' },
+  "Battery (Batterie)": [
+    {
+      name: "Dry Battery (Pile Sèche)",
+      category: "Hazardous Waste - Non-recyclable",
+    },
+    {
+      name: "Li-ion Battery (Batterie Li-ion)",
+      category: "Hazardous Waste - Non-recyclable",
+    },
+    {
+      name: "Lead-acid Battery (Batterie au Plomb-acide)",
+      category: "Hazardous Waste - Non-recyclable",
+    },
   ],
-  'Glass (Verre)': [
-    { name: 'Broken Glass (Verre Cassé)', category: 'Non-recyclable - Other Waste' },
-    { name: 'Glass Bottle (Bouteille en Verre)', category: 'Recyclable' },
+  "Glass (Verre)": [
+    {
+      name: "Broken Glass (Verre Cassé)",
+      category: "Non-recyclable - Other Waste",
+    },
+    { name: "Glass Bottle (Bouteille en Verre)", category: "Recyclable" },
   ],
-  'Medicine (Médicament)': [
-    { name: 'Expired Medicine (Médicament Périmé)', category: 'Hazardous Waste - Non-recyclable' },
+  "Medicine (Médicament)": [
+    {
+      name: "Expired Medicine (Médicament Périmé)",
+      category: "Hazardous Waste - Non-recyclable",
+    },
   ],
-  'Packing & Parcel (Emballage & Colis)': [
-    { name: 'Plastic Wrap (Film Plastique)', category: 'Non-recyclable - Other Waste' },
-    { name: 'Cardboard Box (Boîte en Carton)', category: 'Recyclable' },
+  "Packing & Parcel (Emballage & Colis)": [
+    {
+      name: "Plastic Wrap (Film Plastique)",
+      category: "Non-recyclable - Other Waste",
+    },
+    { name: "Cardboard Box (Boîte en Carton)", category: "Recyclable" },
   ],
-  'Clothing (Vêtements)': [
-    { name: 'Old Clothes (Vieux Vêtements)', category: 'Recyclable' },
+  "Clothing (Vêtements)": [
+    { name: "Old Clothes (Vieux Vêtements)", category: "Recyclable" },
   ],
-  'Kitchen & Food (Cuisine & Aliments)': [
-    { name: 'Food Waste (Déchets Alimentaires)', category: 'Organic Waste - Non-recyclable' },
-    { name: 'Eggshells (Coquilles d\'Œufs)', category: 'Organic Waste - Non-recyclable' },
+  "Kitchen & Food (Cuisine & Aliments)": [
+    {
+      name: "Food Waste (Déchets Alimentaires)",
+      category: "Organic Waste - Non-recyclable",
+    },
+    {
+      name: "Eggshells (Coquilles d'Œufs)",
+      category: "Organic Waste - Non-recyclable",
+    },
   ],
-  'Hygiene Product (Produit Hygiène)': [
-    { name: 'Used Tissue (Mouchoir Usagé)', category: 'Non-recyclable - Hygiene Waste' },
-    { name: 'Diapers (Couches)', category: 'Non-recyclable - Hygiene Waste' },
+  "Hygiene Product (Produit Hygiène)": [
+    {
+      name: "Used Tissue (Mouchoir Usagé)",
+      category: "Non-recyclable - Hygiene Waste",
+    },
+    { name: "Diapers (Couches)", category: "Non-recyclable - Hygiene Waste" },
   ],
 };
 
-
-
-const dbPath = path.join(__dirname, 'db.json');
+const dbPath = path.join(__dirname, "db.json");
 
 // 读取统计数据
 const readStatsFromFile = () => {
@@ -145,10 +176,10 @@ const readStatsFromFile = () => {
     if (!fs.existsSync(dbPath)) {
       fs.writeFileSync(dbPath, JSON.stringify({}));
     }
-    const data = fs.readFileSync(dbPath, 'utf-8');
+    const data = fs.readFileSync(dbPath, "utf-8");
     return JSON.parse(data);
   } catch (error) {
-    console.error('Error reading stats from file:', error);
+    console.error("Error reading stats from file:", error);
     return {};
   }
 };
@@ -159,34 +190,33 @@ const writeStatsToFile = async (stats) => {
   try {
     await fs.promises.writeFile(dbPath, JSON.stringify(stats, null, 2));
   } catch (error) {
-    console.error('Error writing stats to file:', error);
+    console.error("Error writing stats to file:", error);
   }
 };
-
 
 // 初始化用户查询统计数据
 let userStats = readStatsFromFile();
 
 // 获取大类
-app.get('/api/categories', (req, res) => {
+app.get("/api/categories", (req, res) => {
   res.json(Object.keys(trashData));
 });
 
 // 获取指定大类的子类
-app.get('/api/categories/:category', (req, res) => {
+app.get("/api/categories/:category", (req, res) => {
   const category = req.params.category;
   if (trashData[category]) {
     res.json(trashData[category]);
   } else {
-    res.status(404).json({ error: 'Category not found' });
+    res.status(404).json({ error: "Category not found" });
   }
 });
 
-app.post('/api/log', async (req, res) => {
+app.post("/api/log", async (req, res) => {
   const { item, category } = req.body;
 
   if (!item || !category) {
-    return res.status(400).json({ error: 'Invalid request data' });
+    return res.status(400).json({ error: "Invalid request data" });
   }
 
   if (!userStats[item]) {
@@ -197,7 +227,7 @@ app.post('/api/log', async (req, res) => {
   // 异步写入文件
   writeStatsToFile(userStats);
 
-  res.json({ message: 'Logged successfully' });
+  res.json({ message: "Logged successfully" });
 });
 
 // app.post('/api/log', (req, res) => {
@@ -216,10 +246,8 @@ app.post('/api/log', async (req, res) => {
 //   res.json({ message: 'Logged successfully' });
 // });
 
-
-
 // 获取用户查询统计数据
-app.get('/api/stats', (req, res) => {
+app.get("/api/stats", (req, res) => {
   res.json(Object.values(userStats));
 });
 
