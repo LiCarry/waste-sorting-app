@@ -1,0 +1,87 @@
+{
+  "Dry Battery": {
+    "item": "Dry Battery",
+    "category": "Hazardous Waste",
+    "count": 2
+  },
+  "Paper": {
+    "item": "Paper",
+    "category": "Main Category",
+    "count": 3
+  },
+  "Battery": {
+    "item": "Battery",
+    "category": "Main Category",
+    "count": 3
+  },
+  "Glass": {
+    "item": "Glass",
+    "category": "Main Category",
+    "count": 2
+  },
+  "Medicine": {
+    "item": "Medicine",
+    "category": "Main Category",
+    "count": 2
+  },
+  "Packing & Parcel": {
+    "item": "Packing & Parcel",
+    "category": "Main Category",
+    "count": 2
+  },
+  "Clothing": {
+    "item": "Clothing",
+    "category": "Main Category",
+    "count": 2
+  },
+  "Kitchen & Food": {
+    "item": "Kitchen & Food",
+    "category": "Main Category",
+    "count": 2
+  },
+  "Hygiene Product": {
+    "item": "Hygiene Product",
+    "category": "Main Category",
+    "count": 4
+  },
+  "Paper (Papier)": {
+    "item": "Paper (Papier)",
+    "category": "Main Category",
+    "count": 4
+  },
+  "Battery (Batterie)": {
+    "item": "Battery (Batterie)",
+    "category": "Main Category",
+    "count": 4
+  },
+  "Glass (Verre)": {
+    "item": "Glass (Verre)",
+    "category": "Main Category",
+    "count": 2
+  },
+  "Medicine (Médicament)": {
+    "item": "Medicine (Médicament)",
+    "category": "Main Category",
+    "count": 3
+  },
+  "Packing & Parcel (Emballage & Colis)": {
+    "item": "Packing & Parcel (Emballage & Colis)",
+    "category": "Main Category",
+    "count": 2
+  },
+  "Clothing (Vêtements)": {
+    "item": "Clothing (Vêtements)",
+    "category": "Main Category",
+    "count": 2
+  },
+  "Kitchen & Food (Cuisine & Aliments)": {
+    "item": "Kitchen & Food (Cuisine & Aliments)",
+    "category": "Main Category",
+    "count": 1
+  },
+  "Hygiene Product (Produit Hygiène)": {
+    "item": "Hygiene Product (Produit Hygiène)",
+    "category": "Main Category",
+    "count": 3
+  }
+}
