@@ -2,41 +2,56 @@
   "Paper (Papier)": {
     "item": "Paper (Papier)",
     "category": "Main Category",
-    "count": 10
+    "count": 16
   },
   "Battery (Batterie)": {
     "item": "Battery (Batterie)",
     "category": "Main Category",
-    "count": 9
+    "count": 12
   },
   "Glass (Verre)": {
     "item": "Glass (Verre)",
     "category": "Main Category",
-    "count": 4
+    "count": 13
   },
   "Medicine (Médicament)": {
     "item": "Medicine (Médicament)",
     "category": "Main Category",
-    "count": 6
+    "count": 11
   },
   "Packing & Parcel (Emballage & Colis)": {
     "item": "Packing & Parcel (Emballage & Colis)",
     "category": "Main Category",
-    "count": 4
+    "count": 10
   },
   "Clothing (Vêtements)": {
     "item": "Clothing (Vêtements)",
     "category": "Main Category",
-    "count": 4
+    "count": 9
   },
   "Kitchen & Food (Cuisine & Aliments)": {
     "item": "Kitchen & Food (Cuisine & Aliments)",
     "category": "Main Category",
-    "count": 2
+    "count": 6
   },
   "Hygiene Product (Produit Hygiène)": {
     "item": "Hygiene Product (Produit Hygiène)",
     "category": "Main Category",
-    "count": 4
+    "count": 9
+  },
+  "High Tech": {
+    "item": "High Tech",
+    "category": "Main Category",
+    "count": 1
+  },
+  "DIY": {
+    "item": "DIY",
+    "category": "Main Category",
+    "count": 6
+  },
+  "High Tech(High-Tech)": {
+    "item": "High Tech(High-Tech)",
+    "category": "Main Category",
+    "count": 3
   }
 }

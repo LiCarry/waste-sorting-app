@@ -1,94 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-// import './App.css';
-// import Statistics from './Statistics';
-
-// const App = () => {
-//   const [categories, setCategories] = useState([]); // 大类
-//   const [subcategories, setSubcategories] = useState([]); // 子类
-//   const [activeCategory, setActiveCategory] = useState(null); // 当前激活的大类
-
-//   // 获取大类
-//   const fetchCategories = async () => {
-//     try {
-//       const response = await axios.get('/api/categories');
-//       setCategories(response.data);
-//     } catch (error) {
-//       console.error('Error fetching categories:', error);
-//     }
-//   };
-
-//   const handleCategoryClick = async (category) => {
-//     if (activeCategory === category) {
-//       setActiveCategory(null);
-//       setSubcategories([]);
-//     } else {
-//       try {
-//         const response = await axios.get(`/api/categories/${category}`);
-//         setSubcategories(response.data);
-//         setActiveCategory(category);
-
-//         // 记录统计信息
-//         await axios.post('/api/log', { item: category, category: "Main Category" });
-//       } catch (error) {
-//         console.error('Error fetching subcategories or logging category:', error);
-//       }
-//     }
-//   };
-
-//   useEffect(() => {
-//     fetchCategories();
-//   }, []);
-
-//   return (
-//     <Router>
-//       <div className="container">
-//         <Routes>
-//           {/* 首页 */}
-//           <Route
-//             path="/"
-//             element={
-//               <>
-//                 <h1>Trash Classification</h1>
-//                 <Link to="/statistics">
-//                   <button className="stats-button">View Statistics</button>
-//                 </Link>
-//                 <ul className="category-list">
-//                   {categories.map((category, index) => (
-//                     <li key={index} className="category-item">
-//                       <button
-//                         onClick={() => handleCategoryClick(category)}
-//                         className={`category-button ${
-//                           activeCategory === category ? 'active' : ''
-//                         }`}
-//                       >
-//                         {category}
-//                       </button>
-//                       {activeCategory === category && (
-//                         <ul className="subcategory-list">
-//                           {subcategories.map((sub, subIndex) => (
-//                             <li key={subIndex} className="subcategory-item">
-//                               <strong>{sub.name}</strong> - {sub.category}
-//                             </li>
-//                           ))}
-//                         </ul>
-//                       )}
-//                     </li>
-//                   ))}
-//                 </ul>
-//               </>
-//             }
-//           />
-//           {/* 统计页面 */}
-//           <Route path="/statistics" element={<Statistics />} />
-//         </Routes>
-//       </div>
-//     </Router>
-//   );
-// };
-
-// export default App;
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -104,9 +13,9 @@ const App = () => {
   // 垃圾桶说明内容
   const infoItems = [
     {
-      title: "Waste Sorting Introduction",
+      title: "Trash Can Introduction",
       content: `
-        <strong>RECYCLE (Déchets recyclables):</strong>
+        <strong>RECYCLABLE (Déchets recyclables):</strong>
         <p>Corresponds to the aforementioned recyclables. Used for resources such as:</p>
         <ul>
           <li>Paper: Newspaper, cardboard, and packaging paper.</li>
