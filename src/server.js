@@ -103,27 +103,34 @@ const trashData = {
   "Paper (Papier)": [
     {
       name: "Toilet Paper (Papier Toilette)",
-      category: "Non-recyclable - Hygiene Waste",
+      category: "Non-recyclable: Flush toilet paper down the toilet, please.",
     },
-    { name: "Newspaper (Journal)", category: "Recyclable" },
+    { name: "Newspaper", category: "Recyclable" },
     {
       name: "Candy Paper (Papier Bonbon)",
       category: "Non-recyclable - Other Waste",
     },
     { name: "Paper Carton (Carton de Papier)", category: "Recyclable" },
+    {
+      name: "Tetra Pak",
+      category:
+        "Recyclable - Empty the liquid from the package completely, then clean the package thoroughly",
+    },
   ],
   "Battery (Batterie)": [
     {
       name: "Dry Battery (Pile Sèche)",
-      category: "Hazardous Waste - Non-recyclable",
+      category: "Non-recyclable - Other Waste",
     },
     {
       name: "Li-ion Battery (Batterie Li-ion)",
-      category: "Hazardous Waste - Non-recyclable",
+      category:
+        "Non-recyclable - Hazardous Waste: return my used batteries and light bulbs to supermarkets or shops.",
     },
     {
-      name: "Lead-acid Battery (Batterie au Plomb-acide)",
-      category: "Hazardous Waste - Non-recyclable",
+      name: "Car Battery (Batterie de Voiture)",
+      category:
+        "Non-recyclable - Hazardous Waste: return my used batteries and light bulbs to supermarkets or shops.",
     },
   ],
   "Glass (Verre)": [
@@ -131,12 +138,16 @@ const trashData = {
       name: "Broken Glass (Verre Cassé)",
       category: "Non-recyclable - Other Waste",
     },
-    { name: "Glass Bottle (Bouteille en Verre)", category: "Recyclable" },
+    {
+      name: "Glass Bottle (Bouteille en Verre)",
+      category: "Recyclable: Clean the before through it",
+    },
   ],
   "Medicine (Médicament)": [
     {
       name: "Expired Medicine (Médicament Périmé)",
-      category: "Hazardous Waste - Non-recyclable",
+      category:
+        "Non-recyclable - Hazardous Waste: Takes the medicines back to the pharmacy.",
     },
   ],
   "Packing & Parcel (Emballage & Colis)": [
@@ -147,24 +158,47 @@ const trashData = {
     { name: "Cardboard Box (Boîte en Carton)", category: "Recyclable" },
   ],
   "Clothing (Vêtements)": [
-    { name: "Old Clothes (Vieux Vêtements)", category: "Recyclable" },
+    {
+      name: "Old Clothes (Vieux Vêtements)",
+      category:
+        "Recyclable: I give away my old clothes, toys which can still be used by the association",
+    },
   ],
   "Kitchen & Food (Cuisine & Aliments)": [
     {
       name: "Food Waste (Déchets Alimentaires)",
-      category: "Organic Waste - Non-recyclable",
+      category: "Non-recyclable - Organic Waste",
     },
     {
       name: "Eggshells (Coquilles d'Œufs)",
-      category: "Organic Waste - Non-recyclable",
+      category: "Non-recyclable - Organic Waste",
     },
   ],
   "Hygiene Product (Produit Hygiène)": [
     {
       name: "Used Tissue (Mouchoir Usagé)",
-      category: "Non-recyclable - Hygiene Waste",
+      category: "Non-recyclable -  Other Waste",
     },
-    { name: "Diapers (Couches)", category: "Non-recyclable - Hygiene Waste" },
+    { name: "Diapers (Couches)", category: "Non-recyclable -  Other Waste" },
+  ],
+  "High Tech(High-Tech)": [
+    {
+      name: "Mobile Phone(Téléphone mobile)",
+      category:
+        "Non-recyclable - Hazardous Waste: Return the old devieces to the seller, who takes it back free of charge.",
+    },
+  ],
+  DIY: [
+    {
+      name: "Used Oil",
+      category:
+        "I take rubble, used oil, etc. and garden waste (grass cuttings, leaves, etc.) to the waste collection centre.",
+    },
+    {
+      name: "Garden Waste",
+      category:
+        "I take rubble, used oil, etc. and garden waste (grass cuttings, leaves, etc.) to the waste collection centre.",
+    },
   ],
 };
 

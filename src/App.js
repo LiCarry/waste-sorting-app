@@ -28,7 +28,7 @@
 //         const response = await axios.get(`/api/categories/${category}`);
 //         setSubcategories(response.data);
 //         setActiveCategory(category);
-  
+
 //         // 记录统计信息
 //         await axios.post('/api/log', { item: category, category: "Main Category" });
 //       } catch (error) {
@@ -36,7 +36,6 @@
 //       }
 //     }
 //   };
-  
 
 //   useEffect(() => {
 //     fetchCategories();
@@ -90,11 +89,11 @@
 // };
 
 // export default App;
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './App.css';
-import Statistics from './Statistics';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
+import Statistics from "./Statistics";
 
 const App = () => {
   const [categories, setCategories] = useState([]); // 大类
@@ -105,9 +104,9 @@ const App = () => {
   // 垃圾桶说明内容
   const infoItems = [
     {
-      title: 'Trash can introduction',
+      title: "Waste Sorting Introduction",
       content: `
-        <strong>RECYCLE (Yellow trash can):</strong>
+        <strong>RECYCLE (Déchets recyclables):</strong>
         <p>Corresponds to the aforementioned recyclables. Used for resources such as:</p>
         <ul>
           <li>Paper: Newspaper, cardboard, and packaging paper.</li>
@@ -116,21 +115,21 @@ const App = () => {
           <li>Glass: Glass bottles and other clean glass items.</li>
         </ul>
         
-        <strong>ORGANIC (Green trash can):</strong>
+        <strong>ORGANIC (Déchets organiques):</strong>
         <p>Corresponds to food waste (wet waste). Used for storing organic waste such as:</p>
         <ul>
           <li>Food scraps: Leftovers, fruit peels.</li>
           <li>Bones, shells, and leaves.</li>
         </ul>
         
-        <strong>GENERAL (Blue Bin):</strong>
+        <strong>OTHER WASTE (Déchets résiduels):</strong>
         <p>Corresponds to other garbage (dry waste) that is difficult to recycle, such as:</p>
         <ul>
           <li>Cigarette butts, dust, used tissues.</li>
           <li>Broken ceramics, polluted plastics.</li>
         </ul>
         
-        <strong>HAZARDOUS (Red trash can):</strong>
+        <strong>HAZARDOUS (Déchets dangereux):</strong>
         <p>Corresponds to hazardous waste, requiring special handling. Examples include:</p>
         <ul>
           <li>Used batteries, lamps.</li>
@@ -139,16 +138,14 @@ const App = () => {
       `,
     },
   ];
-  
-  
 
   // 获取大类
   const fetchCategories = async () => {
     try {
-      const response = await axios.get('/api/categories');
+      const response = await axios.get("/api/categories");
       setCategories(response.data);
     } catch (error) {
-      console.error('Error fetching categories:', error);
+      console.error("Error fetching categories:", error);
     }
   };
 
@@ -163,9 +160,15 @@ const App = () => {
         setActiveCategory(category);
 
         // 记录统计信息
-        await axios.post('/api/log', { item: category, category: 'Main Category' });
+        await axios.post("/api/log", {
+          item: category,
+          category: "Main Category",
+        });
       } catch (error) {
-        console.error('Error fetching subcategories or logging category:', error);
+        console.error(
+          "Error fetching subcategories or logging category:",
+          error
+        );
       }
     }
   };
@@ -191,22 +194,24 @@ const App = () => {
             path="/"
             element={
               <>
-                <h1>Trash Classification</h1>
+                <h1>Waste Sorting Guider - Assistant au tri des déchets</h1>
                 <div className="info-section">
                   {infoItems.map((item, index) => (
                     <div key={index} className="info-item">
                       <button
                         onClick={() => handleInfoClick(index)}
                         className={`info-button ${
-                          activeInfo === index ? 'active' : ''
+                          activeInfo === index ? "active" : ""
                         }`}
                       >
                         {item.title}
                       </button>
                       {activeInfo === index && (
                         <div className="info-content">
-  <                         div dangerouslySetInnerHTML={{ __html: item.content }} />
-                            <img src="/1.jpg" alt="Trash Bin Example" />
+                          <div
+                            dangerouslySetInnerHTML={{ __html: item.content }}
+                          />
+                          <img src="/1.jpg" alt="Trash Bin Example" />
                         </div>
                       )}
                     </div>
@@ -221,7 +226,7 @@ const App = () => {
                       <button
                         onClick={() => handleCategoryClick(category)}
                         className={`category-button ${
-                          activeCategory === category ? 'active' : ''
+                          activeCategory === category ? "active" : ""
                         }`}
                       >
                         {category}
